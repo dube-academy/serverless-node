@@ -6,6 +6,7 @@ const compression = require('compression')
 const { getCurrentInvoke } = require('@vendia/serverless-express')
 const server = express()
 const router = express.Router()
+const config = require('./config')
 
 router.use(compression())
 
@@ -22,11 +23,9 @@ router.get('/', (req, res) => {
 
   const apiUrl = `https://${Host[0]}/${stage}`
   res.send({
-    debug: true,
-    success: true,
+    debug: !config.IS_PRODUCTION,
     apiUrl,
-    stage,
-    date: new Date().toString(),
+    env: config.ENV,
   })
 })
 

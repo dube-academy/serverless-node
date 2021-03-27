@@ -10,14 +10,12 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
     // library: 'serverlessExpressEdge',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
   },
   plugins: [
-    new CopyPlugin({
-      patterns: [
-        { from: './src/views', to: 'views' },
-        { from: './src/vendia-logo.png' }
-      ]
-    })
-  ]
+    // new CopyPlugin({
+    //   patterns: [
+    //   ]
+    // })
+  ],
 }
