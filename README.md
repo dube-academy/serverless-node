@@ -6,6 +6,13 @@
 
 [https://dev.serverless.academy.dube.io](https://dev.serverless.academy.dube.io)
 
+## Requirements
+
+- Node.js Installation
+- AWS Account
+- AWS CLI Installation (⚠️ Forgot to mention this in the Video)
+- GitHub Account
+
 ### AWS Permissions
 
 ```
@@ -44,7 +51,8 @@
             "Sid": "IamGetRole",
             "Effect": "Allow",
             "Action": [
-                "iam:GetRole"
+                "iam:GetRole",
+                "iam:PassRole"
             ],
             "Resource": "*"
         },
