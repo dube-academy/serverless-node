@@ -1,3 +1,7 @@
+[![Dev Release](https://github.com/dube-academy/serverless-node/actions/workflows/dev.yml/badge.svg?branch=main)](https://github.com/dube-academy/serverless-node/actions/workflows/dev.yml)
+
+[https://dev.serverless.academy.dube.io](https://dev.serverless.academy.dube.io)
+
 ### AWS Permissions
 
 ```

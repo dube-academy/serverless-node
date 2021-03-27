@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
     debug: !config.IS_PRODUCTION,
     apiUrl,
     env: config.ENV,
-    git: true,
+    autoDeploy: true,
   })
 })
 
