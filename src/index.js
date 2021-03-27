@@ -20,12 +20,13 @@ router.get('/', (req, res) => {
   const { requestContext = {}, multiValueHeaders = {} } = event
   const { stage = '' } = requestContext
   const { Host = ['localhost:' + global.PORT] } = multiValueHeaders
+  const apiUrl = `https://${Host[0]}`
 
-  const apiUrl = `https://${Host[0]}/${stage}`
   res.send({
     debug: !config.IS_PRODUCTION,
     apiUrl,
     env: config.ENV,
+    git: true,
   })
 })
 

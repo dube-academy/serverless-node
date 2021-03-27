@@ -1,0 +1,32 @@
+name: Dev Release
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - name: Install node_modules
+        run: npm install --production=false
+      - name: Release
+        run: npm run release
+
+    env:
+      ENV: development
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      FUNCTION_NAME: 'AcademyServerlessNodeFunctionDev'
+      REGION: 'eu-central-1'
+      CLOUD_FORMATION_STACKNAME: 'AcademyServerlessNodeStackDev'
+      BUCKET_NAME: 'academy-serverless-node-dev'
+      DOMAIN: 'dev.serverless.academy.dube.io'
+      CERTIFICATE_ARN: 'arn:aws:acm:us-east-1:785750802441:certificate/12fe0b34-dff0-4245-b4ad-9ff3e2aea98d'

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Example application for running a Node Express app on AWS Lambda using Amazon API Gateway.",
   "main": "lambda.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "dev:local": "node scripts/local",
     "dev:invoke-lambda": "cross-var aws lambda invoke --function-name $FUNCTION_NAME --region $REGION --payload file://api-gateway-event.json lambda-invoke-response.json && cat lambda-invoke-response.json",
