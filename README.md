@@ -1,3 +1,7 @@
+[![Production Release](https://github.com/dube-academy/serverless-node/actions/workflows/production.yml/badge.svg)](https://github.com/dube-academy/serverless-node/actions/workflows/production.yml)
+
+[https://serverless.academy.dube.io](https://serverless.academy.dube.io)
+
 [![Dev Release](https://github.com/dube-academy/serverless-node/actions/workflows/dev.yml/badge.svg?branch=main)](https://github.com/dube-academy/serverless-node/actions/workflows/dev.yml)
 
 [https://dev.serverless.academy.dube.io](https://dev.serverless.academy.dube.io)
