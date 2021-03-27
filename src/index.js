@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const compression = require('compression')
 const { getCurrentInvoke } = require('@vendia/serverless-express')
-const app = express()
+const server = express()
 const router = express.Router()
 
 router.use(compression())
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
   const { event = {} } = currentInvoke
   const { requestContext = {}, multiValueHeaders = {} } = event
   const { stage = '' } = requestContext
-  const { Host = ['localhost:3000'] } = multiValueHeaders
+  const { Host = ['localhost:' + global.PORT] } = multiValueHeaders
 
   const apiUrl = `https://${Host[0]}/${stage}`
   res.send({
@@ -26,9 +26,10 @@ router.get('/', (req, res) => {
     success: true,
     apiUrl,
     stage,
+    date: new Date().toString(),
   })
 })
 
-app.use('/', router)
+server.use('/', router)
 
-module.exports = app
+module.exports = server
