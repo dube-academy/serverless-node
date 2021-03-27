@@ -9,7 +9,7 @@
     "dev": "nodemon scripts/dev.js --watch src/ --watch scripts/dev.js",
     "release:build": "webpack-cli",
     "release:package": "cross-var aws cloudformation package --template ./sam-template.yaml --s3-bucket $BUCKET_NAME --output-template sam-template.packaged.yaml --region $REGION",
-    "release:deploy": "cross-var aws cloudformation deploy --template-file sam-template.packaged.yaml --stack-name $CLOUD_FORMATION_STACKNAME --capabilities CAPABILITY_IAM --region $REGION --parameter-overrides DomainName=$DOMAIN",
+    "release:deploy": "cross-var aws cloudformation deploy --template-file sam-template.packaged.yaml --stack-name $CLOUD_FORMATION_STACKNAME --capabilities CAPABILITY_IAM --region $REGION --parameter-overrides DomainName=$DOMAIN CertificateArn=$CERTIFICATE_ARN",
     "release": "npm run release:build && npm run release:package && npm run release:deploy",
     "setup:create-bucket": "cross-var aws s3 mb s3://$BUCKET_NAME --region $REGION",
     "setup:delete-bucket": "cross-var aws s3 rb s3://$BUCKET_NAME --region $REGION",
